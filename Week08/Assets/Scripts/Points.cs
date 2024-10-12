@@ -7,6 +7,7 @@ public class Points : MonoBehaviour
     [SerializeField] private float point;
     void OnTriggerEnter(Collider collider)
     {
-        Destroy(collider.gameObject);
+        Destroy(gameObject);
+        ScoreKeeper.ScoreKeeperInstance.OnPickup(point); 
     }
 }
