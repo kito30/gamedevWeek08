@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScoreKeeper : MonoBehaviour
 {
     private static float score=0;
-    [SerializeField] private float scoreRate;
     public static float Score
     {
         get
@@ -13,7 +12,7 @@ public class ScoreKeeper : MonoBehaviour
             return score;
         }
     }
-    public void OnPickup()
+    public void OnPickup(float scoreRate)
     {
         score += scoreRate;
     }
