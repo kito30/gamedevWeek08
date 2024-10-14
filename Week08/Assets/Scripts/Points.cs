@@ -8,6 +8,6 @@ public class Points : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         Destroy(gameObject);
-        ScoreKeeper.ScoreKeeperInstance.OnPickup(point); 
+        ScoreKeeper.ScoreKeeperInstance.OnPickup(point,collider.gameObject); 
     }
 }

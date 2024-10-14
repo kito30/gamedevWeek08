@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
     private static float score=0;
+    private static float score2 = 0;   
     private static ScoreKeeper instance;
+    [SerializeField] private string p1Tag;
+    [SerializeField] private string p2Tag;
     public static ScoreKeeper ScoreKeeperInstance
     {
         get
@@ -20,6 +21,13 @@ public class ScoreKeeper : MonoBehaviour
             return score;
         }
     }
+    public static float Score2
+    {
+        get
+        {
+            return score2;
+        }
+    }
     void Awake()
     {
          if (instance != null)
@@ -31,8 +39,17 @@ public class ScoreKeeper : MonoBehaviour
             instance = this;
          }
     }
-    public void OnPickup(float scoreRate)
+    public void OnPickup(float scoreRate, GameObject gameObject)
     {
-        score += scoreRate;
+        if(gameObject.tag == p1Tag)
+        {
+            score += scoreRate;
+        }
+        else if (gameObject.tag == p2Tag)
+        {
+            score2 += scoreRate;
+        }
     }
+
+    
 }
